@@ -1,12 +1,24 @@
 <template>
-  <h1 v-if="authStore.isAuthenticated">Navbar</h1>
-  <router-view></router-view>
+  <sidebar v-if="isLoggedIn"></sidebar>
+  <div :class="[isLoggedIn ? 'hasSidebar' : '']">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup>
+import { computed, watch } from 'vue';
+import Sidebar from './components/Sidebar.vue';
 import { useAuthStore } from './stores/auth';
 
 const authStore = useAuthStore();
+const isLoggedIn = computed(() => {
+  return authStore.isLoggedIn;
+});
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.hasSidebar {
+  padding: 1rem;
+  margin-left: 16rem;
+}
+</style>

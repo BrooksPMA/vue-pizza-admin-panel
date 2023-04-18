@@ -3,28 +3,21 @@ import { defineStore } from 'pinia';
 export const useAuthStore = defineStore({
   id: 'auth',
   state: () => ({
-    email: '',
-    password: '',
-    isAuthenticated: false,
+    isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false,
   }),
   actions: {
     async login(email, password) {
       if (email === 'daniel@lukmanov.net' && password === 'admin') {
-        this.isAuthenticated = true;
-        localStorage.setItem('isAuthenticated', true);
+        this.isLoggedIn = true;
+        localStorage.setItem('isLoggedIn', true);
         return true;
       } else {
         return false;
       }
     },
     logout() {
-      this.isAuthenticated = false;
-      localStorage.removeItem('isAuthenticated');
+      this.isLoggedIn = false;
+      localStorage.removeItem('isLoggedIn');
     },
-  },
-  created() {
-    if (localStorage.getItem('isAuthenticated')) {
-      this.isAuthenticated = JSON.parse(isAuthenticated);
-    }
   },
 });

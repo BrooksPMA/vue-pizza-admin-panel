@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import Dashboard from '../views/Dashboard.vue';
 import LoginPage from '../views/LoginPage.vue';
 import { useAuthStore } from '../stores/auth';
 
@@ -8,8 +8,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: HomeView,
+      name: 'Dashboard',
+      component: Dashboard,
     },
     {
       path: '/login',
@@ -20,10 +20,12 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = useAuthStore().isAuthenticated;
+  const isLoggedIn = useAuthStore().isLoggedIn;
 
-  if (to.name === 'Home' && !isAuthenticated) {
+  if (to.name === 'Dashboard' && !isLoggedIn) {
     next('/login');
+  } else if (to.name === 'Login' && isLoggedIn) {
+    next('/');
   } else {
     next();
   }

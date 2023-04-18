@@ -63,7 +63,6 @@ const submit = async () => {
   const success = await authStore.login(email.value, password.value);
   if (success) {
     router.push('/');
-    alert('Success');
   } else {
     alert('Invalid email or password');
   }
