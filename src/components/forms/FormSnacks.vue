@@ -37,10 +37,12 @@
 </template>
 
 <script setup>
-import CheckboxToggle from '../ui/CheckboxToggle.vue';
 import TextareaWithLabel from '../ui/TextareaWithLabel.vue';
 import InputWithLabel from '../ui/InputWithLabel.vue';
 import { ref } from 'vue';
+import { useProductStore } from '../../stores/productStore';
+
+const productStore = useProductStore();
 
 const name = ref('');
 const description = ref('');
@@ -48,8 +50,16 @@ const image = ref('');
 const weight = ref('');
 const price = ref('');
 
-const handleSubmit = () => {
-  const formData = {
+const clearForm = () => {
+  name.value = '';
+  description.value = '';
+  image.value = '';
+  weight.value = '';
+  price.value = '';
+};
+
+const handleSubmit = async () => {
+  productStore.form = {
     type: 'snacks',
     name: name.value,
     description: description.value,
@@ -57,9 +67,7 @@ const handleSubmit = () => {
     weight: weight.value,
     price: price.value,
   };
-
-  console.log(formData);
-
-  (name.value = ''), (description.value = '');
+  await productStore.submitForm();
+  clearForm();
 };
 </script>

@@ -4,7 +4,7 @@ import LoginPage from '../views/LoginPage.vue';
 import Food from '../views/Food.vue';
 import AddFood from '../views/AddFood.vue';
 import Orders from '../views/Orders.vue';
-import { useAuthStore } from '../stores/auth';
+import { useAuthStore } from '../stores/authStore';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -41,26 +41,6 @@ const currentFoodName = computed(() => {
 //   currentFoodName.value = foodName.name;
 //   console.log(currentFoodName.value);
 // }
-
-// TODO: Add own form for each type of food.
-//    case 'pizza':
-//       currentFoodTypeName.value = 'Пицца';
-//       break;
-//     case 'snacks':
-//       currentFoodTypeName.value = 'Закуски';
-//       break;
-//     case 'desserts':
-//       currentFoodTypeName.value = 'Десерты';
-//       break;
-//     case 'combo':
-//       currentFoodTypeName.value = 'Комбо';
-//       break;
-//     case 'drinks':
-//       currentFoodTypeName.value = 'Напитки';
-//       break;
-//     case 'others':
-//       currentFoodTypeName.value = 'Другие товары';
-//       break;
 </script>
 <style scoped>
 .active {

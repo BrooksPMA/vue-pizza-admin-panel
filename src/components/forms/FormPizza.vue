@@ -133,6 +133,9 @@ import CheckboxToggle from '../ui/CheckboxToggle.vue';
 import TextareaWithLabel from '../ui/TextareaWithLabel.vue';
 import InputWithLabel from '../ui/InputWithLabel.vue';
 import { ref, reactive } from 'vue';
+import { useProductStore } from '../../stores/productStore';
+
+const productStore = useProductStore();
 
 const name = ref('');
 const description = ref('');
@@ -147,13 +150,30 @@ const americanSizes = reactive({
 });
 
 const italianSizes = reactive({
-  small: { price: '', weight: '' },
   medium: { price: '', weight: '' },
   large: { price: '', weight: '' },
 });
 
-const handleSubmit = () => {
-  const formData = {
+// const clearForm = () => {
+//   name.value = '';
+//   description.value = '';
+//   image.value = '';
+//   american.value = false;
+//   italian.value = false;
+//   americanSizes.small.price.value = '';
+//   americanSizes.small.weight.value = '';
+//   americanSizes.medium.price.value = '';
+//   americanSizes.medium.weight.value = '';
+//   americanSizes.large.price.value = '';
+//   americanSizes.large.weight.value = '';
+//   italianSizes.medium.price.value = '';
+//   italianSizes.medium.weight.value = '';
+//   italianSizes.large.price.value = '';
+//   italianSizes.large.weight.value = '';
+// };
+
+const handleSubmit = async () => {
+  productStore.form = await {
     type: 'pizza',
     name: name.value,
     description: description.value,
@@ -163,10 +183,8 @@ const handleSubmit = () => {
     americanSizes: { ...americanSizes },
     italianSizes: { ...italianSizes },
   };
-
-  console.log(formData);
-
-  (name.value = ''), (description.value = '');
+  await productStore.submitForm();
+  // clearForm();
 };
 </script>
 

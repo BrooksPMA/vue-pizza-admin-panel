@@ -8,7 +8,7 @@
 <script setup>
 import { computed, watch } from 'vue';
 import Sidebar from './components/Sidebar.vue';
-import { useAuthStore } from './stores/auth';
+import { useAuthStore } from './stores/authStore';
 
 const authStore = useAuthStore();
 const isLoggedIn = computed(() => {
