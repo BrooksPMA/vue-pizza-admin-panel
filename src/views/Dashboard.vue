@@ -70,10 +70,12 @@
       <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
     </div>
   </div> -->
-  <h1>Dashboard</h1>
+  <!-- <h1>Dashboard</h1> -->
+  <loader class="h-screen"></loader>
 </template>
 
 <script setup>
+import Loader from '../components/ui/Loader.vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '../stores/authStore';
 

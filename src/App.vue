@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import Sidebar from './components/Sidebar.vue';
 import { useAuthStore } from './stores/authStore';
 

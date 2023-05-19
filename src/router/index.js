@@ -1,15 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
 import LoginPage from '../views/LoginPage.vue';
-import Food from '../views/Food.vue';
+import Products from '../views/Products.vue';
 import AddFood from '../views/AddFood.vue';
 import Orders from '../views/Orders.vue';
+import UpdateProduct from '../views/UpdateProduct.vue';
 import { useAuthStore } from '../stores/authStore';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   linkActiveClass: 'active',
-  linkExactActiveClass: 'active',
+
   routes: [
     {
       path: '/',
@@ -22,14 +23,19 @@ const router = createRouter({
       component: LoginPage,
     },
     {
-      path: '/food',
-      name: 'Food',
-      component: Food,
+      path: '/products/:type',
+      name: 'Products',
+      component: Products,
     },
     {
       path: '/new/:type',
       name: 'AddFood',
       component: AddFood,
+    },
+    {
+      path: '/update/:type/:id?',
+      name: 'UpdateProduct',
+      component: UpdateProduct,
     },
     {
       path: '/orders',

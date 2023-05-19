@@ -12,7 +12,7 @@ import FormDesserts from './forms/FormDesserts.vue';
 import FormOthers from './forms/FormOthers.vue';
 import FormDrinks from './forms/FormDrinks.vue';
 import FormPizza from './forms/FormPizza.vue';
-const props = defineProps({
+defineProps({
   foodName: String,
 });
 </script>

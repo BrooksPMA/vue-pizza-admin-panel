@@ -4,41 +4,36 @@
     aria-label="Sidebar"
   >
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-800">
+      <div class="flex items-center mb-8">
+        <img
+          class="h-16 w-16 mr-6"
+          src="../assets/pictures/pizza.svg"
+          alt="Pizza icon"
+        />
+        <h1 class="text-white font-bold text-xl">Пиццерия</h1>
+      </div>
       <ul class="space-y-2 font-medium">
         <li>
           <router-link
             :to="{ name: 'Dashboard' }"
             class="flex items-center p-2 text-white rounded-lg hover:bg-gray-700"
           >
-            <svg
-              aria-hidden="true"
+            <font-awesome-icon
               class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-              <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-            </svg>
+              icon="fa-solid fa-house"
+            />
             <span class="ml-3">Главная</span>
           </router-link>
         </li>
         <li>
           <router-link
-            :to="{ name: 'Food' }"
+            :to="{ name: 'Products', params: { type: 'pizza' } }"
             class="flex items-center p-2 text-white rounded-lg hover:bg-gray-700"
           >
-            <svg
-              aria-hidden="true"
+            <font-awesome-icon
               class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-              ></path>
-            </svg>
+              icon="fa-solid fa-bars"
+            />
             <span class="flex-1 ml-3 whitespace-nowrap">Товары</span>
           </router-link>
         </li>
@@ -47,20 +42,10 @@
             :to="{ name: 'AddFood', params: { type: 'pizza' } }"
             class="flex items-center p-2 text-white rounded-lg hover:bg-gray-700"
           >
-            <svg
-              aria-hidden="true"
+            <font-awesome-icon
               class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"
-              ></path>
-              <path
-                d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
-              ></path>
-            </svg>
+              icon="fa-solid fa-cart-plus"
+            />
             <span class="flex-1 ml-3 whitespace-nowrap">Добавить</span>
             <!-- <span
               class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
@@ -73,19 +58,10 @@
             :to="{ name: 'Orders' }"
             class="flex items-center p-2 text-white rounded-lg hover:bg-gray-700"
           >
-            <svg
-              aria-hidden="true"
+            <font-awesome-icon
               class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
+              icon="fa-solid fa-user"
+            />
             <span class="flex-1 ml-3 whitespace-nowrap">Заказы</span>
           </router-link>
         </li>
@@ -116,19 +92,10 @@
             @click="useAuthStore().logout"
             class="flex items-center p-2 text-white rounded-lg hover:bg-gray-700"
           >
-            <svg
-              aria-hidden="true"
+            <font-awesome-icon
               class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
+              icon="fa-solid fa-right-from-bracket"
+            />
             <span class="flex-1 ml-3 whitespace-nowrap">Выйти</span>
           </router-link>
         </li>

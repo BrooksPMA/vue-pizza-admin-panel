@@ -40,9 +40,9 @@
 import TextareaWithLabel from '../ui/TextareaWithLabel.vue';
 import InputWithLabel from '../ui/InputWithLabel.vue';
 import { ref } from 'vue';
-import { useProductStore } from '../../stores/productStore';
+import { setProductStore } from '../../stores/setProductStore';
 
-const productStore = useProductStore();
+const productStore = setProductStore();
 
 const name = ref('');
 const description = ref('');
@@ -50,13 +50,13 @@ const image = ref('');
 const weight = ref('');
 const price = ref('');
 
-const clearForm = () => {
-  name.value = '';
-  description.value = '';
-  image.value = '';
-  weight.value = '';
-  price.value = '';
-};
+// const clearForm = () => {
+//   name.value = '';
+//   description.value = '';
+//   image.value = '';
+//   weight.value = '';
+//   price.value = '';
+// };
 
 const handleSubmit = async () => {
   productStore.form = {
@@ -68,6 +68,6 @@ const handleSubmit = async () => {
     price: price.value,
   };
   await productStore.submitForm();
-  clearForm();
+  // clearForm();
 };
 </script>
