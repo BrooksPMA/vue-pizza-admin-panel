@@ -25,3 +25,4 @@ const currentFoodName = computed(() => {
   return route.params.type;
 });
 </script>
+np

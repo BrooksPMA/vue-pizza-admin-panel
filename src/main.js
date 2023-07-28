@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
+import VueCountdown from '@chenfengyuan/vue-countdown';
+
 import './assets/style.css';
 
 import App from './App.vue';
@@ -10,6 +12,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+import VueApexCharts from 'vue3-apexcharts';
 
 /* import specific icons */
 import {
@@ -35,6 +39,10 @@ library.add(
 
 const app = createApp(App);
 
-app.use(createPinia()).use(router);
-
-app.component('font-awesome-icon', FontAwesomeIcon).mount('#app');
+app
+  .use(createPinia())
+  .use(router)
+  .use(VueApexCharts)
+  .component('font-awesome-icon', FontAwesomeIcon)
+  .component(VueCountdown.name, VueCountdown)
+  .mount('#app');

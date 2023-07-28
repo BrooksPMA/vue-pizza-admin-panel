@@ -1,9 +1,5 @@
 <template>
-  <form-pizza v-if="foodName === 'pizza'" />
-  <form-snacks v-if="foodName === 'snacks'" />
-  <form-desserts v-if="foodName === 'desserts'" />
-  <form-drinks v-if="foodName === 'drinks'" />
-  <form-others v-if="foodName === 'others'" />
+  <component :is="tabs[foodName]" />
 </template>
 
 <script setup>
@@ -15,6 +11,12 @@ import FormPizza from './forms/FormPizza.vue';
 defineProps({
   foodName: String,
 });
-</script>
 
-<style lang="scss" scoped></style>
+const tabs = {
+  snacks: FormSnacks,
+  desserts: FormDesserts,
+  others: FormOthers,
+  drinks: FormDrinks,
+  pizza: FormPizza,
+};
+</script>

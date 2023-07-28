@@ -14,16 +14,14 @@
         class="h-50 w-50 rounded-t-xl"
       />
       <div class="px-4 py-3 w-72">
-        <span class="text-gray-400 mr-3 uppercase text-xs">{{
-          product.type
-        }}</span>
+        <p class="text-gray-400 mr-3 uppercase text-xs">{{ product.type }}</p>
         <div class="flex justify-between">
-          <p class="text-lg font-bold text-black truncate block capitalize">
+          <h1 class="text-lg font-bold text-black truncate block capitalize">
             {{ product.name }}
-          </p>
+          </h1>
           <font-awesome-icon
             @click="deleteProduct()"
-            class="h-6 hover:scale-125"
+            class="ml-3 h-6 hover:scale-125"
             icon="fa-solid fa-trash"
           />
         </div>

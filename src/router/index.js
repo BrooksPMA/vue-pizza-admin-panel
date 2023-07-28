@@ -3,7 +3,8 @@ import Dashboard from '../views/Dashboard.vue';
 import LoginPage from '../views/LoginPage.vue';
 import Products from '../views/Products.vue';
 import AddFood from '../views/AddFood.vue';
-import Orders from '../views/Orders.vue';
+import OrdersList from '../views/OrdersList.vue';
+import Order from '../views/Order.vue';
 import UpdateProduct from '../views/UpdateProduct.vue';
 import { useAuthStore } from '../stores/authStore';
 
@@ -40,7 +41,12 @@ const router = createRouter({
     {
       path: '/orders',
       name: 'Orders',
-      component: Orders,
+      component: OrdersList,
+    },
+    {
+      path: '/order/:id',
+      name: 'Order',
+      component: Order,
     },
   ],
 });

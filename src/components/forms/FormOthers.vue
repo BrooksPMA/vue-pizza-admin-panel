@@ -37,7 +37,6 @@
 </template>
 
 <script setup>
-import CheckboxToggle from '../ui/CheckboxToggle.vue';
 import TextareaWithLabel from '../ui/TextareaWithLabel.vue';
 import InputWithLabel from '../ui/InputWithLabel.vue';
 import { ref } from 'vue';

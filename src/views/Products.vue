@@ -35,10 +35,6 @@ const getData = async () => {
   productData.value = productStore.data;
 };
 
-const test = (i) => {
-  console.log(i);
-};
-
 watch(currentFoodName, () => {
   getData();
 });
