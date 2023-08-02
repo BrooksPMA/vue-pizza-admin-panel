@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8">
+  <div>
     <label v-if="label" class="block mb-1 text-sm font-medium text-gray-900">
       {{ label }}
     </label>

@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8">
+  <div>
     <label class="block mb-2 text-sm font-medium text-gray-900">
       {{ label }}
     </label>
