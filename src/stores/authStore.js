@@ -7,7 +7,7 @@ export const useAuthStore = defineStore({
   }),
   actions: {
     async login(email, password) {
-      if (email === 'daniel@lukmanov.net' && password === 'admin') {
+      if (email === 'admin@admin.ru' && password === 'admin') {
         this.isLoggedIn = true;
         localStorage.setItem('isLoggedIn', true);
         return true;

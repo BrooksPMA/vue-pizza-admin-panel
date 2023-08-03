@@ -1,6 +1,11 @@
 # vue-pizza-admin-panel
 
-This template should help get you started developing with Vue 3 in Vite.
+Панель администратора для сайта пицерии.
+
+```sh
+Логин: admin@admin.ru
+Пароль: admin
+```
 
 ## Recommended IDE Setup
 
