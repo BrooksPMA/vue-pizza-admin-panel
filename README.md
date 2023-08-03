@@ -1,6 +1,6 @@
 # vue-pizza-admin-panel
 
-Панель администратора для сайта пицерии.
+Панель администратора для сайта пицерии vue-pizza (https://github.com/BrooksPMA/vue-pizza).
 
 ```sh
 Логин: admin@admin.ru
