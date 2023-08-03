@@ -2,6 +2,22 @@
   <div>
     <h1 class="text-xl mb-5">Последние обновления:</h1>
     <div class="mb-5">
+      <h2 class="text-m font-bold">02.08.2023</h2>
+      <ul class="max-w-md space-y-1 list-disc list-inside">
+        <li>Тест FormKit, откат до vuelidate</li>
+        <li>Валидация всех форм через vuelidate</li>
+        <li>Анимация успешной отправки данных теперь во всех формах</li>
+        <li>Оптимизация кода</li>
+        <li>Исправления в вёрстке</li>
+      </ul>
+    </div>
+    <div class="mb-5">
+      <h2 class="text-m font-bold">31.07.2023</h2>
+      <ul class="max-w-md space-y-1 list-disc list-inside">
+        <li>Поддержка vuelidate, валидация формы добавления пиццы</li>
+      </ul>
+    </div>
+    <div class="mb-5">
       <h2 class="text-m font-bold">26.07.2023</h2>
       <ul class="max-w-md space-y-1 list-disc list-inside">
         <li>

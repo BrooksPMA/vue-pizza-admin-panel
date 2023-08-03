@@ -148,14 +148,12 @@
         <h1 class="block mb-2 text-m font-bold text-gray-900">Средняя</h1>
         <div class="flex space-x-10">
           <input-with-label
-            class="mb-8"
             :label="'Цена'"
             :placeholder="'819'"
             :textHelper="'₽'"
             v-model="state.italianSizes.medium.price"
           />
           <input-with-label
-            class="mb-8"
             :label="'Вес'"
             :placeholder="'490'"
             :textHelper="'г'"
@@ -165,14 +163,12 @@
         <h1 class="block mb-2 text-m font-bold text-gray-900">Большая</h1>
         <div class="flex space-x-10">
           <input-with-label
-            class="mb-8"
             :label="'Цена'"
             :placeholder="'999'"
             :textHelper="'₽'"
             v-model="state.italianSizes.large.price"
           />
           <input-with-label
-            class="mb-8"
             :label="'Вес'"
             :placeholder="'710'"
             :textHelper="'г'"
@@ -203,10 +199,9 @@
 
 <script setup>
 import SmallLoader from '../ui/SmallLoader.vue';
-
 import TextareaWithLabel from '../ui/TextareaWithLabel.vue';
 import InputWithLabel from '../ui/InputWithLabel.vue';
-import { ref, computed, reactive } from 'vue';
+import { computed, reactive } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { required, minLength, helpers, integer } from '@vuelidate/validators';
 import { setProductStore } from '../../stores/setProductStore';
@@ -248,14 +243,14 @@ const rules = computed(() => {
             'Это поле не может быть пустым',
             required
           ),
-          integer,
+          integer: helpers.withMessage('Введите число', integer),
         },
         weight: {
           required: helpers.withMessage(
             'Это поле не может быть пустым',
             required
           ),
-          integer,
+          integer: helpers.withMessage('Введите число', integer),
         },
       },
       medium: {
@@ -264,14 +259,14 @@ const rules = computed(() => {
             'Это поле не может быть пустым',
             required
           ),
-          integer,
+          integer: helpers.withMessage('Введите число', integer),
         },
         weight: {
           required: helpers.withMessage(
             'Это поле не может быть пустым',
             required
           ),
-          integer,
+          integer: helpers.withMessage('Введите число', integer),
         },
       },
       large: {
@@ -280,14 +275,14 @@ const rules = computed(() => {
             'Это поле не может быть пустым',
             required
           ),
-          integer,
+          integer: helpers.withMessage('Введите число', integer),
         },
         weight: {
           required: helpers.withMessage(
             'Это поле не может быть пустым',
             required
           ),
-          integer,
+          integer: helpers.withMessage('Введите число', integer),
         },
       },
     },
