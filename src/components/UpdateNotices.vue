@@ -2,6 +2,12 @@
   <div>
     <h1 class="text-xl mb-5">Последние обновления:</h1>
     <div class="mb-5">
+      <h2 class="text-m font-bold">07.08.2023</h2>
+      <ul class="max-w-md space-y-1 list-disc list-inside">
+        <li>Оптимизация кода</li>
+      </ul>
+    </div>
+    <div class="mb-5">
       <h2 class="text-m font-bold">02.08.2023</h2>
       <ul class="max-w-md space-y-1 list-disc list-inside">
         <li>Тест FormKit, откат до vuelidate</li>
