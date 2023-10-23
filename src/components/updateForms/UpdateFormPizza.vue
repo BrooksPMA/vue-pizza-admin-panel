@@ -297,8 +297,7 @@ onMounted(async () => {
       italianSizes['large'].price = data.italianSizes['large'].price;
       italianSizes['large'].weight = data.italianSizes['large'].weight;
     } else {
-      // TODO: сделать 404 page
-      router.push({ name: 'AddFood', params: { type: route.params.type } });
+      router.push({ name: 'NotFound' });
     }
   }
 });

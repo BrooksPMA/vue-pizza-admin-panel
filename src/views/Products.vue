@@ -18,12 +18,13 @@ import ProductCard from '@/components/ProductCard.vue';
 import Loader from '../components/ui/Loader.vue';
 import { computed, onMounted, ref, watch } from 'vue';
 import { getProductStore } from '../stores/getProductStore';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const productStore = getProductStore();
 
 const productData = ref();
 const route = useRoute();
+const router = useRouter();
 
 const currentFoodName = computed(() => {
   return route.params.type;
@@ -32,7 +33,10 @@ const currentFoodName = computed(() => {
 const getData = async () => {
   productStore.type = currentFoodName;
   await productStore.getDataWithType();
-  productData.value = productStore.data;
+  productData.value = await productStore.data;
+  if (!productData.value) {
+    router.push({ name: 'NotFound' });
+  }
 };
 
 watch(currentFoodName, () => {

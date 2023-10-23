@@ -123,8 +123,7 @@ onMounted(async () => {
       weight.value = data.weight;
       price.value = data.price;
     } else {
-      // TODO: сделать 404 page
-      router.push({ name: 'AddFood', params: { type: route.params.type } });
+      router.push({ name: 'NotFound' });
     }
   }
 });

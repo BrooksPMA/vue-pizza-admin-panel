@@ -6,6 +6,7 @@ import AddFood from '../views/AddFood.vue';
 import OrdersList from '../views/OrdersList.vue';
 import Order from '../views/Order.vue';
 import UpdateProduct from '../views/UpdateProduct.vue';
+import NotFound from '../views/NotFound.vue';
 import { useAuthStore } from '../stores/authStore';
 
 const router = createRouter({
@@ -47,6 +48,11 @@ const router = createRouter({
       path: '/order/:id',
       name: 'Order',
       component: Order,
+    },
+    {
+      path: '/404/',
+      name: 'NotFound',
+      component: NotFound,
     },
   ],
 });
