@@ -5,6 +5,7 @@
       <h2 class="text-m font-bold">25.10.2023</h2>
       <ul class="max-w-md space-y-1 list-disc list-inside">
         <li>Полный рефакторинг форм обновлений</li>
+        <li>Полный рефакторинг форм добавлений</li>
       </ul>
     </div>
     <div class="mb-5">
