@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="updateForm">
     <h1 class="mb-6 border-b-[1px] text-2xl font-medium text-gray-900">
-      Изменить данные пиццы "{{ name }}"
+      Изменить данные пиццы "{{ formData.name }}"
     </h1>
     <div class="mb-8">
       <label class="block mb-1 text-sm font-medium text-gray-900">
@@ -10,7 +10,7 @@
       <div class="flex items-center min-w-[400px]">
         <input
           type="text"
-          v-model="name"
+          v-model="formData.name"
           readonly
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         />
@@ -23,7 +23,7 @@
       </label>
       <textarea
         rows="4"
-        v-model="description"
+        v-model="formData.description"
         placeholder="Увеличенная порция моцареллы, томаты, итальянские травы, фирменный томатный соус"
         class="block p-2.5 w-full resize-none text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
       ></textarea>
@@ -36,7 +36,7 @@
       <div class="flex items-center min-w-[400px]">
         <input
           type="text"
-          v-model="image"
+          v-model="formData.image"
           placeholder="https://dodopizza-a.akamaihd.net/static/Img/Products/748949429e25404ea10aab002c910d84_584x584.webp"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         />
@@ -62,7 +62,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="americanSizes.small.price"
+                v-model="formData.americanSizes.small.price"
                 placeholder="519"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -76,7 +76,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="americanSizes.small.weight"
+                v-model="formData.americanSizes.small.weight"
                 placeholder="400"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -94,7 +94,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="americanSizes.medium.price"
+                v-model="formData.americanSizes.medium.price"
                 placeholder="819"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -108,7 +108,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="americanSizes.medium.weight"
+                v-model="formData.americanSizes.medium.weight"
                 placeholder="610"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -126,7 +126,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="americanSizes.large.price"
+                v-model="formData.americanSizes.large.price"
                 placeholder="999"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -140,7 +140,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="americanSizes.large.weight"
+                v-model="formData.americanSizes.large.weight"
                 placeholder="850"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -168,7 +168,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="italianSizes.medium.price"
+                v-model="formData.italianSizes.medium.price"
                 placeholder="819"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -182,7 +182,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="italianSizes.medium.weight"
+                v-model="formData.italianSizes.medium.weight"
                 placeholder="490"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -199,7 +199,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="italianSizes.large.price"
+                v-model="formData.italianSizes.large.price"
                 placeholder="999"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -213,7 +213,7 @@
             <div class="flex items-center min-w-[400px]">
               <input
                 type="text"
-                v-model="italianSizes.large.weight"
+                v-model="formData.italianSizes.large.weight"
                 placeholder="710"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
@@ -245,72 +245,16 @@
 
 <script setup>
 import SmallLoader from '../ui/SmallLoader.vue';
-import { ref, reactive, onMounted } from 'vue';
 import { setProductStore } from '../../stores/setProductStore';
-import { useRoute, useRouter } from 'vue-router';
-import { getProductStore } from '../../stores/getProductStore';
-
-const route = useRoute();
-const router = useRouter();
 
 const productStore = setProductStore();
-const getProduct = getProductStore();
 
-const name = ref('');
-const description = ref('');
-const image = ref('');
-
-const americanSizes = reactive({
-  small: { price: '', weight: '' },
-  medium: { price: '', weight: '' },
-  large: { price: '', weight: '' },
+const emit = defineEmits(['updateForm']);
+const props = defineProps({
+  formData: Object,
 });
 
-const italianSizes = reactive({
-  medium: { price: '', weight: '' },
-  large: { price: '', weight: '' },
-});
-
-onMounted(async () => {
-  if (route.params.id) {
-    getProduct.docName = route.params.id;
-    getProduct.docType = route.params.type;
-    await getProduct.getDocWithName();
-
-    if (getProduct.docData.data()) {
-      console.log(getProduct.docData.data());
-      const data = getProduct.docData.data();
-
-      name.value = data.name;
-      description.value = data.description;
-      image.value = data.image;
-
-      americanSizes['small'].price = data.americanSizes['small'].price;
-      americanSizes['small'].weight = data.americanSizes['small'].weight;
-      americanSizes['medium'].price = data.americanSizes['medium'].price;
-      americanSizes['medium'].weight = data.americanSizes['medium'].weight;
-      americanSizes['large'].price = data.americanSizes['large'].price;
-      americanSizes['large'].weight = data.americanSizes['large'].weight;
-
-      italianSizes['medium'].price = data.italianSizes['medium'].price;
-      italianSizes['medium'].weight = data.italianSizes['medium'].weight;
-      italianSizes['large'].price = data.italianSizes['large'].price;
-      italianSizes['large'].weight = data.italianSizes['large'].weight;
-    } else {
-      router.push({ name: 'NotFound' });
-    }
-  }
-});
-
-const updateForm = async (event) => {
-  productStore.form = await {
-    type: 'pizza',
-    name: name.value,
-    description: description.value,
-    image: image.value,
-    americanSizes: { ...americanSizes },
-    italianSizes: { ...italianSizes },
-  };
-  await productStore.updateForm();
+const updateForm = async () => {
+  emit('updateForm', props.formData);
 };
 </script>
