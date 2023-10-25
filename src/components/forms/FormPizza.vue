@@ -4,7 +4,7 @@
       <input-with-label
         :label="'Название'"
         :placeholder="'Маргарита'"
-        v-model="state.name"
+        v-model="formData.name"
       />
       <p v-if="v$.name.$error" class="mt-2 text-xs text-red-600">
         {{ v$.name.$errors[0].$message }}
@@ -14,7 +14,7 @@
       <textarea-with-label
         :label="'Описание'"
         :placeholder="'Увеличенная порция моцареллы, томаты, итальянские травы, фирменный томатный соус'"
-        v-model="state.description"
+        v-model="formData.description"
       />
       <p v-if="v$.description.$error" class="mt-2 text-xs text-red-600">
         {{ v$.description.$errors[0].$message }}
@@ -24,7 +24,7 @@
       <input-with-label
         :label="'Ссылка на фотографию'"
         :placeholder="'https://dodopizza-a.akamaihd.net/static/Img/Products/748949429e25404ea10aab002c910d84_584x584.webp'"
-        v-model="state.image"
+        v-model="formData.image"
       />
       <p v-if="v$.image.$error" class="mt-2 text-xs text-red-600">
         {{ v$.image.$errors[0].$message }}
@@ -48,7 +48,7 @@
               :label="'Цена'"
               :placeholder="'519'"
               :textHelper="'₽'"
-              v-model="state.americanSizes.small.price"
+              v-model="formData.americanSizes.small.price"
             />
             <p
               v-if="v$.americanSizes.small.price.$error"
@@ -62,7 +62,7 @@
               :label="'Вес'"
               :placeholder="'400'"
               :textHelper="'г'"
-              v-model="state.americanSizes.small.weight"
+              v-model="formData.americanSizes.small.weight"
             />
             <p
               v-if="v$.americanSizes.small.weight.$error"
@@ -79,7 +79,7 @@
               :label="'Цена'"
               :placeholder="'819'"
               :textHelper="'₽'"
-              v-model="state.americanSizes.medium.price"
+              v-model="formData.americanSizes.medium.price"
             />
             <p
               v-if="v$.americanSizes.medium.price.$error"
@@ -93,7 +93,7 @@
               :label="'Вес'"
               :placeholder="'610'"
               :textHelper="'г'"
-              v-model="state.americanSizes.medium.weight"
+              v-model="formData.americanSizes.medium.weight"
             />
             <p
               v-if="v$.americanSizes.medium.weight.$error"
@@ -110,7 +110,7 @@
               :label="'Цена'"
               :placeholder="'999'"
               :textHelper="'₽'"
-              v-model="state.americanSizes.large.price"
+              v-model="formData.americanSizes.large.price"
             />
             <p
               v-if="v$.americanSizes.large.price.$error"
@@ -124,7 +124,7 @@
               :label="'Вес'"
               :placeholder="'850'"
               :textHelper="'г'"
-              v-model="state.americanSizes.large.weight"
+              v-model="formData.americanSizes.large.weight"
             />
             <p
               v-if="v$.americanSizes.large.weight.$error"
@@ -151,13 +151,13 @@
             :label="'Цена'"
             :placeholder="'819'"
             :textHelper="'₽'"
-            v-model="state.italianSizes.medium.price"
+            v-model="formData.italianSizes.medium.price"
           />
           <input-with-label
             :label="'Вес'"
             :placeholder="'490'"
             :textHelper="'г'"
-            v-model="state.italianSizes.medium.weight"
+            v-model="formData.italianSizes.medium.weight"
           />
         </div>
         <h1 class="block mb-2 text-m font-bold text-gray-900">Большая</h1>
@@ -166,13 +166,13 @@
             :label="'Цена'"
             :placeholder="'999'"
             :textHelper="'₽'"
-            v-model="state.italianSizes.large.price"
+            v-model="formData.italianSizes.large.price"
           />
           <input-with-label
             :label="'Вес'"
             :placeholder="'710'"
             :textHelper="'г'"
-            v-model="state.italianSizes.large.weight"
+            v-model="formData.italianSizes.large.weight"
           />
         </div>
       </div>
@@ -201,17 +201,17 @@
 import SmallLoader from '../ui/SmallLoader.vue';
 import TextareaWithLabel from '../ui/TextareaWithLabel.vue';
 import InputWithLabel from '../ui/InputWithLabel.vue';
-import { computed, reactive } from 'vue';
+import { computed, ref } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { required, minLength, helpers, integer } from '@vuelidate/validators';
 import { setProductStore } from '../../stores/setProductStore';
 
 const productStore = setProductStore();
 
-const state = reactive({
-  name: '',
-  description: '',
-  image: '',
+const emit = defineEmits(['submitForm']);
+
+const formData = ref({
+  type: 'pizza',
   americanSizes: {
     small: { price: '', weight: '' },
     medium: { price: '', weight: '' },
@@ -289,20 +289,12 @@ const rules = computed(() => {
   };
 });
 
-const v$ = useVuelidate(rules, state);
+const v$ = useVuelidate(rules, formData);
 
 const handleSubmit = async (event) => {
   const isFormCorrect = await v$.value.$validate();
   if (!isFormCorrect) return;
-  productStore.form = await {
-    type: 'pizza',
-    name: state.name,
-    description: state.description,
-    image: state.image,
-    americanSizes: { ...state.americanSizes },
-    italianSizes: { ...state.italianSizes },
-  };
-  await productStore.submitForm();
+  emit('submitForm', formData.value);
   event.target.reset();
 };
 </script>
